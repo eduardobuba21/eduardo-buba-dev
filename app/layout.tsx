@@ -1,4 +1,5 @@
 import './globals.css';
+import StyledComponentsRegistry from './lib/registry';
 
 /* ---------------------------------------------------------------------- */
 
@@ -16,7 +17,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt">
-      <body>{children}</body>
+      <head></head>
+      <body>
+        <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+      </body>
     </html>
   );
 }
