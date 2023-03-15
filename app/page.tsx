@@ -1,7 +1,9 @@
 'use client';
 
+import { mq } from '@/utils/theme';
 import styled from 'styled-components';
 import { Inter } from 'next/font/google';
+import Footer from '@/components/Footer';
 const inter = Inter({ subsets: ['latin'] });
 
 /* ---------------------------------------------------------------------- */
@@ -15,21 +17,20 @@ export default function Home() {
             <div>
               <h1>Eduardo Buba</h1>
               <p>
-                <strong>Founder and CEO</strong>
-                Descricao
+                <strong>Sou desenvolvedor web fullstack,</strong>
+                <br />e mobile nos tempos livres.
               </p>
             </div>
           </PostContainer>
         </PostContent>
       </Container>
+
+      <Footer />
     </Wrapper>
   );
 }
 
 /* ---------------------------------------------------------------------- */
-
-const breakpoints = [600, 900, 1200, 1536];
-const mq = breakpoints.map((bp) => `@media (min-width: ${bp}px)`);
 
 const Wrapper = styled.div`
   display: flex;
@@ -42,6 +43,7 @@ const Wrapper = styled.div`
 const Container = styled.div`
   align-items: center;
   display: flex;
+  flex: 1;
   margin: 0 auto;
   ${mq[1]} {
     width: 800px;
@@ -51,8 +53,6 @@ const Container = styled.div`
 const PostContent = styled.div`
   font-size: 16px;
   line-height: 32px;
-  /* color: ; */
-  /* background: ; */
   position: relative;
   z-index: 1;
   height: 100%;

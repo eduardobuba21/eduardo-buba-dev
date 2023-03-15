@@ -7,6 +7,13 @@
   --foreground-rgb: 255, 255, 255;
   --background-start-rgb: 0, 0, 0;
   --background-end-rgb: 0, 0, 0;
+
+  --colors-text-primary: #f2f2f2;
+  --colors-text-secondary: #8f9ba8;
+  --colors-background: #08070b;
+  --colors-hover: #212024;
+
+  --duration: 0.2s;
 }
 
 /* ---------------------------------------------------------------------- */
@@ -29,15 +36,45 @@ html {
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: var(--colors-background);
+}
+
+h1,
+h2 {
+  font-weight: 600;
+}
+
+h1 {
+  color: var(--colors-text-primary);
+  font-size: 48px;
+  line-height: 50px;
+  margin: 0 0 20px;
+}
+
+h2 {
+  color: var(--colors-text-primary);
+  margin: 60px 0 0;
+  font-size: 24px;
+}
+
+p {
+  color: var(--colors-text-secondary);
+  font-weight: 300;
+}
+
+strong {
+  color: var(--colors-text-primary);
+  font-weight: 400;
 }
 
 a {
-  color: inherit;
+  color: var(--colors-text-primary);
   text-decoration: none;
+  font-weight: 300;
+  border-bottom: 0.5px solid var(--colors-text-secondary);
+  transition: opacity var(--duration) ease-in-out;
+}
+a:hover,
+a:focus {
+  opacity: 0.8;
 }

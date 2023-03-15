@@ -18,6 +18,7 @@ export default function RootLayout({
   return (
     <html lang="pt">
       <head></head>
+
       <body>
         <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
       </body>
