@@ -4,6 +4,7 @@ import { mq } from '@/utils/theme';
 import styled from 'styled-components';
 import { Inter } from 'next/font/google';
 import Footer from '@/components/Footer';
+import Navbar from '@/components/Navbar';
 const inter = Inter({ subsets: ['latin'] });
 
 /* ---------------------------------------------------------------------- */
@@ -11,6 +12,8 @@ const inter = Inter({ subsets: ['latin'] });
 export default function Home() {
   return (
     <Wrapper>
+      <Navbar />
+
       <Container>
         <PostContent>
           <PostContainer>
