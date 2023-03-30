@@ -38,24 +38,26 @@ const links: LinkItem[] = [
 /* ---------------------------------------------------------------------- */
 
 export default function Footer() {
-  const renderAnchor = (link: LinkItem, index: number) => {
-    const Icon = link.icon;
+  return (
+    <Container>
+      {links.map((link: LinkItem, index: number) => {
+        const Icon = link.icon;
 
-    return (
-      <Anchor
-        key={index}
-        href={link.url}
-        target={link.url.startsWith('https://') ? '_blank' : undefined}
-      >
-        <Title>{link.title}</Title>
-        <IconWrapper>
-          <Icon />
-        </IconWrapper>
-      </Anchor>
-    );
-  };
-
-  return <Container>{links.map(renderAnchor)}</Container>;
+        return (
+          <Anchor
+            key={index}
+            href={link.url}
+            target={link.url.startsWith('https://') ? '_blank' : undefined}
+          >
+            <Title>{link.title}</Title>
+            <IconWrapper>
+              <Icon />
+            </IconWrapper>
+          </Anchor>
+        );
+      })}
+    </Container>
+  );
 }
 
 /* ---------------------------------------------------------------------- */
