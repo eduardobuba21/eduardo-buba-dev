@@ -1,10 +1,11 @@
 'use client';
 
+import Link from 'next/link';
 import { useState } from 'react';
 import { mq } from '@/utils/theme';
 import styled from 'styled-components';
-import { AnimatePresence, motion } from 'framer-motion';
 import { usePathname } from 'next/navigation';
+import { AnimatePresence, motion } from 'framer-motion';
 
 /* ---------------------------------------------------------------------- */
 
@@ -26,9 +27,7 @@ export default function Navbar() {
 
   return (
     <Header>
-      {/* <Link href="/" passHref>
-        <ButtonLogo>B</ButtonLogo>
-      </Link> */}
+      {/* <ButtonLogo href="/">B</ButtonLogo> */}
 
       <Nav>
         <List>
@@ -38,8 +37,7 @@ export default function Navbar() {
 
             return (
               <li key={path}>
-                {/* <Link href={path} passHref> */}
-                <Anchor>
+                <AnchorLink href={path}>
                   <NavContainer
                     onHoverStart={() => setHovered(path)}
                     onHoverEnd={() => setHovered('')}
@@ -65,8 +63,7 @@ export default function Navbar() {
 
                     {label}
                   </NavContainer>
-                </Anchor>
-                {/* </Link> */}
+                </AnchorLink>
               </li>
             );
           })}
@@ -95,27 +92,26 @@ const Header = styled.header`
   }
 `;
 
-const ButtonHeader = styled.div`
-  appearance: none;
-  background: transparent;
-  border: none;
-  border-radius: var(--border-radius);
-  color: white;
-  cursor: pointer;
-  height: 34px;
-  padding: 0 10px;
-  transition: background var(--duration) ease-in-out;
-  &:focus {
-    background: var(--colors-hover);
-  }
-`;
-
-const ButtonLogo = styled(ButtonHeader)`
-  font-weight: 700;
-  font-size: 32px;
-  text-decoration: none;
-  margin-left: 12px;
-`;
+// const ButtonLogo = styled(Link)`
+//   appearance: none;
+//   background: transparent;
+//   border: none;
+//   border-radius: var(--border-radius);
+//   color: white;
+//   cursor: pointer;
+//   height: 34px;
+//   width: 34px;
+//   padding: 0 10px;
+//   transition: background var(--duration) ease-in-out;
+//   &:focus {
+//     background: var(--colors-hover);
+//   }
+//   //
+//   font-weight: 700;
+//   font-size: 26px;
+//   text-decoration: none;
+//   margin-left: 12px;
+// `;
 
 const Nav = styled.nav`
   text-align: center;
@@ -144,7 +140,7 @@ const List = styled.ul`
   }
 `;
 
-const Anchor = styled.a`
+const AnchorLink = styled(Link)`
   border: 0;
   position: relative;
   &:hover,

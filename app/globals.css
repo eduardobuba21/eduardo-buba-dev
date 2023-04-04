@@ -14,6 +14,18 @@
   --colors-hover: #212024;
 
   --duration: 0.2s;
+
+  --tile-start-rgb: 2, 13, 46;
+  --tile-end-rgb: 2, 5, 19;
+  --tile-border: conic-gradient(
+    #ffffff80,
+    #ffffff40,
+    #ffffff30,
+    #ffffff20,
+    #ffffff10,
+    #ffffff10,
+    #ffffff80
+  );
 }
 
 /* ---------------------------------------------------------------------- */
@@ -77,4 +89,13 @@ a {
 a:hover,
 a:focus {
   opacity: 0.8;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
 }
