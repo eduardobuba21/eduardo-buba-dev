@@ -27,7 +27,9 @@ export default function Navbar() {
 
   return (
     <Header>
-      {/* <ButtonLogo href="/">B</ButtonLogo> */}
+      <HeaderItem>
+        <LogoLink href="/">B</LogoLink>
+      </HeaderItem>
 
       <Nav>
         <List>
@@ -69,6 +71,8 @@ export default function Navbar() {
           })}
         </List>
       </Nav>
+
+      <HeaderItem />
     </Header>
   );
 }
@@ -92,26 +96,30 @@ const Header = styled.header`
   }
 `;
 
-// const ButtonLogo = styled(Link)`
-//   appearance: none;
-//   background: transparent;
-//   border: none;
-//   border-radius: var(--border-radius);
-//   color: white;
-//   cursor: pointer;
-//   height: 34px;
-//   width: 34px;
-//   padding: 0 10px;
-//   transition: background var(--duration) ease-in-out;
-//   &:focus {
-//     background: var(--colors-hover);
-//   }
-//   //
-//   font-weight: 700;
-//   font-size: 26px;
-//   text-decoration: none;
-//   margin-left: 12px;
-// `;
+const HeaderItem = styled.div`
+  flex: 1 1 0px;
+  display: flex;
+`;
+
+const LogoLink = styled(Link)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: var(--border-radius);
+  color: white;
+  height: 40px;
+  padding: 0 10px;
+  transition: background var(--duration) ease-in-out;
+  &:hover {
+    background: var(--colors-hover);
+  }
+  //
+  font-weight: 700;
+  font-size: 26px;
+  text-decoration: none;
+  margin-left: 12px;
+`;
 
 const Nav = styled.nav`
   text-align: center;
