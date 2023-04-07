@@ -2,10 +2,8 @@
 
 import { mq } from '@/utils/theme';
 import styled from 'styled-components';
-import { Inter } from 'next/font/google';
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
-const inter = Inter({ subsets: ['latin'] });
 
 /* ---------------------------------------------------------------------- */
 
@@ -36,7 +34,6 @@ const Wrapper = styled.div`
   flex-direction: column;
   min-height: 100vh;
   position: relative;
-  font-family: ${inter.style.fontFamily};
 `;
 
 const Container = styled.div`

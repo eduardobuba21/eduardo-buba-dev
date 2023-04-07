@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { mq } from '@/utils/theme';
 import styled from 'styled-components';
 import { usePathname } from 'next/navigation';
-import { AnimatePresence, motion } from 'framer-motion';
+import { motion, AnimatePresence } from '@/components/motion';
 
 /* ---------------------------------------------------------------------- */
 

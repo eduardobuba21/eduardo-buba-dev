@@ -26,6 +26,17 @@
     #ffffff10,
     #ffffff80
   );
+
+  --primary-glow: radial-gradient(
+    rgba(29, 208, 216, 0.15),
+    rgba(29, 208, 216, 0)
+  );
+  --secondary-glow: linear-gradient(
+    to bottom right,
+    rgba(29, 208, 216, 0),
+    rgba(29, 208, 216, 0),
+    rgba(29, 208, 216, 0.1)
+  );
 }
 
 /* ---------------------------------------------------------------------- */
