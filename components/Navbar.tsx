@@ -44,13 +44,14 @@ export default function Navbar() {
                     onHoverStart={() => setHovered(path)}
                     onHoverEnd={() => setHovered('')}
                     style={
-                      pathname === path
+                      pathname.includes(path)
                         ? {
                             color: 'var(--colors-text-primary)',
                             // '&::after': { opacity: 1 },
                           }
                         : {}
                     }
+                    isActive={pathname.includes(path)}
                   >
                     <AnimatePresence>
                       {isHovered && (
@@ -157,7 +158,9 @@ const AnchorLink = styled(Link)`
   }
 `;
 
-const NavContainer = styled(motion.span)`
+const NavContainer = styled(motion.span).withConfig({
+  shouldForwardProp: (prop) => !['isActive'].includes(prop),
+})<{ isActive: boolean }>`
   color: var(--colors-text-secondary);
   cursor: pointer;
   display: inline-block;
@@ -181,7 +184,7 @@ const NavContainer = styled(motion.span)`
     height: 1px;
     width: 20px;
     background: rgb(255, 255, 255);
-    opacity: 0;
+    opacity: ${(p) => (p.isActive ? 1 : 0)};
     transition: opacity var(--duration) ease-in-out;
   }
 `;
