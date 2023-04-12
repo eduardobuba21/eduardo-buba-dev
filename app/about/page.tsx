@@ -6,6 +6,63 @@ import styled from 'styled-components';
 
 /* ---------------------------------------------------------------------- */
 
+const CAREER: {
+  jobTitle: string;
+  company: string;
+  companyUrl?: string;
+  start: string;
+  end?: string;
+  location: string;
+}[] = [
+  {
+    jobTitle: 'Desenvolvedor web',
+    company: 'tex4',
+    companyUrl: 'https://tex4.com',
+    start: 'Dez 2022',
+    location: 'Piên, PR',
+  },
+  {
+    jobTitle: 'Desenvolvedor',
+    company: 'Autônomo',
+    start: 'Mai 2022',
+    end: 'Nov 2022',
+    location: 'Piên, PR',
+  },
+  {
+    jobTitle: 'Suporte técnico',
+    company: 'Szmigel',
+    companyUrl: 'https://szmigel.com.br',
+    start: 'Fev 2021',
+    end: 'Abr 2022',
+    location: 'Piên, PR',
+  },
+  {
+    jobTitle: 'Designer',
+    company: 'Autônomo',
+    start: 'Dez 2019',
+    end: 'Jan 2021',
+    location: 'Piên, PR',
+  },
+  {
+    jobTitle: 'Estagiário',
+    company: 'CooperStandard',
+    companyUrl: 'https://cooperstandard.com',
+    start: 'Fev 2019',
+    end: 'Nov 2019',
+    location: 'Rio Negrinho, SC',
+  },
+  {
+    jobTitle: 'Aprendiz',
+    company: 'Arauco',
+    companyUrl: 'https://arauco.cl',
+    start: 'Jun 2018',
+    end: 'Fev 2019',
+    location: 'Piên, PR',
+  },
+];
+
+/* ---------------------------------------------------------------------- */
+
 export default function About() {
   return (
     <Container>
@@ -16,17 +73,64 @@ export default function About() {
               Sobre.
             </GradientTitle>
 
-            <ImgBase>
-              <ProfileImg
-                alt="Eduardo"
-                src="/profile.jpg"
-                height="250"
-                width="250"
-                placeholder="blur"
-                blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAIAAAAmkwkpAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAP0lEQVQImQE0AMv/AFBQUJKSkqmpqaOjowCurq7v7+/Jycm5ubkA////jIyMn5+fg4ODADAwMD09PWlpaQAAAApRGnEHblMWAAAAAElFTkSuQmCC"
-                priority
-              />
-            </ImgBase>
+            <IntroContainer>
+              <Section>
+                <ProfileImg
+                  alt="Eduardo"
+                  src="/profile.jpg"
+                  height="336"
+                  width="336"
+                  placeholder="blur"
+                  blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAIAAAAmkwkpAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAP0lEQVQImQE0AMv/AFBQUJKSkqmpqaOjowCurq7v7+/Jycm5ubkA////jIyMn5+fg4ODADAwMD09PWlpaQAAAApRGnEHblMWAAAAAElFTkSuQmCC"
+                  priority
+                />
+              </Section>
+
+              <Section>
+                {/* TODO: margin top on mobile */}
+                <Paragraph>
+                  <strong>Meu nome é Eduardo Buba</strong>, tenho 22 anos, sou
+                  de Piên-PR e formado em Sistemas de Informação na{' '}
+                  <strong>UDESC</strong>.
+                </Paragraph>
+
+                <Paragraph>
+                  Tive oportunidade de ser <strong>aprendiz</strong> de
+                  informática industrial em uma moveleira,{' '}
+                  <strong>estagiário</strong> de TI em uma multinacional
+                  automotiva, e <strong>técnico</strong> de suporte a sistemas e
+                  infraestrutura de rede.
+                </Paragraph>
+
+                <Paragraph>
+                  Durante a universade acabei me apegando a programação de{' '}
+                  <strong>aplicações web e mobile</strong>, que foi o caminho
+                  que resolvi seguir desde então.
+                </Paragraph>
+              </Section>
+            </IntroContainer>
+
+            <h2>Carreira</h2>
+
+            {CAREER.map((item, index) => (
+              <div key={index} style={{ marginTop: 20, marginBottom: 40 }}>
+                <h3>{item.jobTitle}</h3>
+
+                <p style={{ margin: 0 }}>
+                  <a href={item.companyUrl} target="_blank">
+                    {item.company}
+                  </a>
+                  <span> • {item.location}</span>
+                </p>
+
+                <p style={{ margin: 0 }}>
+                  <span>{item.start}</span>
+                  <span> – </span>
+                  <span>{'end' in item ? item.end : 'Presente'}</span>
+                  {/* <span> • </span> */}
+                </p>
+              </div>
+            ))}
           </PostMain>
         </PostContainer>
       </PostContent>
@@ -43,6 +147,15 @@ const Container = styled.div`
   margin: 0 auto;
   ${mq[1]} {
     width: 800px;
+  }
+`;
+
+const IntroContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  ${mq[1]} {
+    flex-direction: row;
   }
 `;
 
@@ -106,42 +219,19 @@ const ProfileImg = styled(Image)`
   border-radius: var(--border-radius);
 `;
 
-const ImgBase = styled.div`
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 251px;
-  height: 251px;
-  padding: 25px 10px;
-  margin-left: 16px;
-  transform: translateZ(0);
-  border-radius: var(--border-radius);
-  overflow: hidden;
-  box-shadow: 0px 2px 8px -1px #0000001a;
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    z-index: -1;
+const Section = styled.div`
+  margin-top: 0px;
+  width: auto;
+  ${mq[1]} {
+    width: 48%;
   }
-  /* conic gradient animation */
-  &::before {
-    animation: 6s rotate linear infinite;
-    width: 200%;
-    height: 200%;
-    background: var(--tile-border);
+`;
+
+const Paragraph = styled.p`
+  & strong {
+    font-weight: lighter;
   }
-  /* inner square */
-  &::after {
-    inset: 0;
-    padding: 1px;
-    border-radius: var(--border-radius);
-    background: linear-gradient(
-      to bottom right,
-      rgba(var(--tile-start-rgb), 1),
-      rgba(var(--tile-end-rgb), 1)
-    );
-    background-clip: content-box;
+  ${mq[1]} {
+    margin-bottom: 15px;
   }
 `;
