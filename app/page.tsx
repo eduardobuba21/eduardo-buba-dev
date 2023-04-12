@@ -3,23 +3,18 @@
 import Image from 'next/image';
 import { mq } from '@/utils/theme';
 import styled from 'styled-components';
-import Footer from '@/components/Footer';
-import Navbar from '@/components/Navbar';
 import { motion, MotionContainer, mVariants } from '@/components/motion';
 
 /* ---------------------------------------------------------------------- */
 
 export default function Home() {
   return (
-    <Wrapper>
-      <Navbar />
-
-      <Container>
-        <PostContent>
-          <MotionContainer>
-            <motion.div variants={mVariants.varFade().in}>
-              <PostContainer>
-                {/* <ImgBase>
+    <Container>
+      <PostContent>
+        <MotionContainer>
+          <motion.div variants={mVariants.varFade().in}>
+            <PostContainer>
+              {/* <ImgBase>
               <ProfileImg
                 src="/profile.jpg"
                 height={250}
@@ -29,37 +24,27 @@ export default function Home() {
               />
             </ImgBase> */}
 
-                <div>
-                  <motion.div variants={mVariants.varFade().inUp}>
-                    <NameTypography>Eduardo Buba</NameTypography>
-                  </motion.div>
+              <div>
+                <motion.div variants={mVariants.varFade().inUp}>
+                  <NameTypography>Eduardo Buba</NameTypography>
+                </motion.div>
 
-                  <motion.div variants={mVariants.varFade().inUp}>
-                    <p>
-                      <strong>Sou desenvolvedor web fullstack</strong>
-                      <br />e mobile nos tempos livres.
-                    </p>
-                  </motion.div>
-                </div>
-              </PostContainer>
-            </motion.div>
-          </MotionContainer>
-        </PostContent>
-      </Container>
-
-      <Footer />
-    </Wrapper>
+                <motion.div variants={mVariants.varFade().inUp}>
+                  <p>
+                    <strong>Sou desenvolvedor web fullstack</strong>
+                    <br />e mobile nos tempos livres.
+                  </p>
+                </motion.div>
+              </div>
+            </PostContainer>
+          </motion.div>
+        </MotionContainer>
+      </PostContent>
+    </Container>
   );
 }
 
 /* ---------------------------------------------------------------------- */
-
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  position: relative;
-`;
 
 const Container = styled.div`
   align-items: center;

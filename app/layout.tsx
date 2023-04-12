@@ -1,12 +1,13 @@
 import './globals.css';
-import { Roboto } from 'next/font/google';
+import { Metadata } from 'next';
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
+import Wrapper from '@/components/Wrapper';
 import StyledComponentsRegistry from './lib/registry';
 
 /* ---------------------------------------------------------------------- */
 
-const roboto = Roboto({ weight: ['300', '500', '700'], subsets: ['latin'] });
-
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Eduardo Buba',
   description: 'Site pessoal',
 };
@@ -22,8 +23,16 @@ export default function RootLayout({
     <html lang="pt">
       <head></head>
 
-      <body style={{ fontFamily: roboto.style.fontFamily }}>
-        <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+      <body>
+        <StyledComponentsRegistry>
+          <Wrapper>
+            <Navbar />
+
+            {children}
+
+            <Footer />
+          </Wrapper>
+        </StyledComponentsRegistry>
       </body>
     </html>
   );

@@ -2,39 +2,24 @@
 
 import { mq } from '@/utils/theme';
 import styled from 'styled-components';
-import Footer from '@/components/Footer';
-import Navbar from '@/components/Navbar';
 
 /* ---------------------------------------------------------------------- */
 
 export default function Projects() {
   return (
-    <Wrapper>
-      <Navbar />
-
-      <Container>
-        <PostContent>
-          <PostContainer>
-            <div>
-              <h1>Projetos</h1>
-            </div>
-          </PostContainer>
-        </PostContent>
-      </Container>
-
-      <Footer />
-    </Wrapper>
+    <Container>
+      <PostContent>
+        <PostContainer>
+          <div>
+            <h1>Projetos</h1>
+          </div>
+        </PostContainer>
+      </PostContent>
+    </Container>
   );
 }
 
 /* ---------------------------------------------------------------------- */
-
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  position: relative;
-`;
 
 const Container = styled.div`
   align-items: center;
