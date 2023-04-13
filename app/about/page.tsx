@@ -68,8 +68,8 @@ export default function About() {
     <Container>
       <PostContent>
         <PostContainer>
-          <PostMain selectionColor="#b248d5">
-            <GradientTitle primaryColor="#b248d5" secondaryColor="#9146e7">
+          <PostMain selectionColor="#9580ff">
+            <GradientTitle primaryColor="#9580ff" secondaryColor="#ff80bf">
               Sobre.
             </GradientTitle>
 
@@ -141,10 +141,10 @@ export default function About() {
 /* ---------------------------------------------------------------------- */
 
 const Container = styled.div`
-  align-items: start;
-  display: flex;
   flex: 1;
+  display: flex;
   margin: 0 auto;
+  align-items: start;
   ${mq[1]} {
     width: 800px;
   }
