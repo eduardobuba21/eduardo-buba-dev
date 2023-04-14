@@ -35,44 +35,44 @@ export default function Home() {
 
 /* ---------------------------------------------------------------------- */
 
-const Container = styled.div`
-  align-items: center;
-  display: flex;
+const Container = styled('div')`
   flex: 1;
+  display: flex;
   margin: 0 auto;
+  align-items: center;
   ${mq[1]} {
     width: 800px;
   }
 `;
 
-const PostContent = styled.div`
-  font-size: 16px;
-  line-height: 32px;
-  position: relative;
+const PostContent = styled('div')`
   z-index: 1;
   height: 100%;
   padding: 20px 0;
+  font-size: 16px;
+  line-height: 32px;
+  position: relative;
 `;
 
-const PostContainer = styled.div`
-  margin: 0 auto;
-  max-width: 760px;
-  padding: 0 20px;
-  display: flex;
-  align-items: center;
+const PostContainer = styled('div')`
   gap: 40px;
+  display: flex;
+  margin: 0 auto;
+  padding: 0 20px;
+  max-width: 760px;
+  align-items: center;
   &::before {
-    background: var(--secondary-glow);
-    border-radius: 50%;
     width: 480px;
     height: 360px;
+    border-radius: 50%;
     margin-left: -400px;
+    background: var(--secondary-glow);
   }
   &::after {
-    background: var(--primary-glow);
+    z-index: -1;
     width: 240px;
     height: 180px;
-    z-index: -1;
+    background: var(--primary-glow);
   }
   &::before,
   &::after {
@@ -84,6 +84,6 @@ const PostContainer = styled.div`
   }
 `;
 
-const NameTypography = styled.h1`
+const NameTypography = styled('h1')`
   filter: invert(0) drop-shadow(0 0 0.3rem #ffffff30);
 `;

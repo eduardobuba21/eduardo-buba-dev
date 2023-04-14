@@ -140,7 +140,7 @@ export default function About() {
 
 /* ---------------------------------------------------------------------- */
 
-const Container = styled.div`
+const Container = styled('div')`
   flex: 1;
   display: flex;
   margin: 0 auto;
@@ -150,7 +150,7 @@ const Container = styled.div`
   }
 `;
 
-const IntroContainer = styled.div`
+const IntroContainer = styled('div')`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -172,9 +172,9 @@ const PostMain = styled('main', {
     padding: ${navHeightDesktop} 0;
   }
   & ::selection {
-    background: ${(p) => p.selectionColor};
     color: #000000;
     -webkit-text-fill-color: #000000;
+    background: ${(p) => p.selectionColor};
   }
 `;
 
@@ -184,11 +184,11 @@ const GradientTitle = styled('h1', {
 })<{ primaryColor: string; secondaryColor: string }>`
   background-size: 100%;
   background-clip: text;
-  -webkit-background-clip: text;
   -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
   box-decoration-break: clone;
+  -webkit-background-clip: text;
+  -moz-text-fill-color: transparent;
+  -webkit-text-fill-color: transparent;
 
   background-image: linear-gradient(
     135deg,
@@ -197,37 +197,37 @@ const GradientTitle = styled('h1', {
   );
 `;
 
-const PostContent = styled.div`
-  font-size: 16px;
-  line-height: 32px;
-  position: relative;
+const PostContent = styled('div')`
   z-index: 1;
   height: 100%;
   padding: 20px 0;
+  font-size: 16px;
+  line-height: 32px;
+  position: relative;
 `;
 
-const PostContainer = styled.div`
-  margin: 0 auto;
-  max-width: 760px;
-  padding: 0 20px;
-  display: flex;
-  align-items: center;
+const PostContainer = styled('div')`
   gap: 40px;
+  display: flex;
+  margin: 0 auto;
+  padding: 0 20px;
+  max-width: 760px;
+  align-items: center;
 `;
 
 const ProfileImg = styled(Image)`
   border-radius: var(--border-radius);
 `;
 
-const Section = styled.div`
-  margin-top: 0px;
+const Section = styled('div')`
   width: auto;
+  margin-top: 0px;
   ${mq[1]} {
     width: 48%;
   }
 `;
 
-const Paragraph = styled.p`
+const Paragraph = styled('p')`
   & strong {
     font-weight: lighter;
   }

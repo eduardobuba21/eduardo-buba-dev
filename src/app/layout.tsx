@@ -1,9 +1,8 @@
-import './globals.css';
+import '@/globals.css';
 import { Metadata } from 'next';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
-import Wrapper from '@/components/Wrapper';
-import EmotionStyleRegistry from './emotion';
+import EmotionStyleRegistry from '@/emotion';
+import BaseLayout from '@/layouts/BaseLayout';
+import StylesWrapper from '@/components/StylesWrapper';
 
 /* ---------------------------------------------------------------------- */
 
@@ -25,13 +24,9 @@ export default function RootLayout({
 
       <body>
         <EmotionStyleRegistry>
-          <Wrapper>
-            <Navbar />
-
-            {children}
-
-            <Footer />
-          </Wrapper>
+          <StylesWrapper>
+            <BaseLayout>{children}</BaseLayout>
+          </StylesWrapper>
         </EmotionStyleRegistry>
       </body>
     </html>
