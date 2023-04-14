@@ -1,9 +1,11 @@
+/** @jsxImportSource @emotion/react */
+
 'use client';
 
 import Link from 'next/link';
 import { useState } from 'react';
 import { mq } from '@/utils/theme';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from '@/components/motion';
 
@@ -26,10 +28,27 @@ export default function Navbar() {
   const [hovered, setHovered] = useState('');
 
   return (
-    <Header>
-      <HeaderItem>
+    <header
+      css={{
+        top: '0',
+        zIndex: '3',
+        width: '100%',
+        color: 'white',
+        display: 'flex',
+        flexWrap: 'wrap',
+        fontSize: '12px',
+        minHeight: '59px',
+        marginTop: '13px',
+        position: 'absolute',
+        alignItems: 'center',
+        [mq[1]]: {
+          marginTop: '0',
+        },
+      }}
+    >
+      <NavbarCornerItem>
         <LogoLink href="/">B</LogoLink>
-      </HeaderItem>
+      </NavbarCornerItem>
 
       <Nav>
         <List>
@@ -43,15 +62,12 @@ export default function Navbar() {
                   <NavContainer
                     onHoverStart={() => setHovered(path)}
                     onHoverEnd={() => setHovered('')}
-                    style={
-                      pathname.includes(path)
-                        ? {
-                            color: 'var(--colors-text-primary)',
-                            // '&::after': { opacity: 1 },
-                          }
-                        : {}
-                    }
-                    isActive={pathname.includes(path)}
+                    css={{
+                      ...(pathname.includes(path) && {
+                        color: 'var(--colors-text-primary)',
+                        '&::after': { opacity: 1 },
+                      }),
+                    }}
                   >
                     <AnimatePresence>
                       {isHovered && (
@@ -73,34 +89,17 @@ export default function Navbar() {
         </List>
       </Nav>
 
-      <HeaderItem />
-    </Header>
+      <NavbarCornerItem />
+    </header>
   );
 }
 
 /* ---------------------------------------------------------------------- */
 
-const Header = styled.header`
-  display: flex;
-  align-items: center;
-  color: white;
-  font-size: 12px;
-  min-height: 59px;
-  width: 100%;
-  flex-wrap: wrap;
-  position: absolute;
-  top: 0;
-  z-index: 3;
-  margin-top: 13px;
-  ${mq[1]} {
-    margin-top: 0;
-  }
-`;
-
-const HeaderItem = styled.div`
-  flex: 1 1 0px;
-  display: flex;
-`;
+const NavbarCornerItem = styled.div({
+  flex: '1 1 0px',
+  display: 'flex',
+});
 
 const LogoLink = styled(Link)`
   display: flex;
@@ -158,9 +157,7 @@ const AnchorLink = styled(Link)`
   }
 `;
 
-const NavContainer = styled(motion.span).withConfig({
-  shouldForwardProp: (prop) => !['isActive'].includes(prop),
-})<{ isActive: boolean }>`
+const NavContainer = styled(motion.span)`
   color: var(--colors-text-secondary);
   cursor: pointer;
   display: inline-block;
@@ -183,8 +180,8 @@ const NavContainer = styled(motion.span).withConfig({
     right: 0px;
     height: 1px;
     width: 20px;
+    opacity: 0;
     background: rgb(255, 255, 255);
-    opacity: ${(p) => (p.isActive ? 1 : 0)};
     transition: opacity var(--duration) ease-in-out;
   }
 `;

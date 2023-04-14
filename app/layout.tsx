@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Wrapper from '@/components/Wrapper';
-import StyledComponentsRegistry from './lib/registry';
+import EmotionStyleRegistry from './emotion';
 
 /* ---------------------------------------------------------------------- */
 
@@ -24,7 +24,7 @@ export default function RootLayout({
       <head></head>
 
       <body>
-        <StyledComponentsRegistry>
+        <EmotionStyleRegistry>
           <Wrapper>
             <Navbar />
 
@@ -32,7 +32,7 @@ export default function RootLayout({
 
             <Footer />
           </Wrapper>
-        </StyledComponentsRegistry>
+        </EmotionStyleRegistry>
       </body>
     </html>
   );

@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { mq } from '@/utils/theme';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import { motion, AnimatePresence } from '@/components/motion';
 
 /* ---------------------------------------------------------------------- */
@@ -115,7 +115,7 @@ const Container = styled.div`
 const navHeightMobile = '110px';
 const navHeightDesktop = '60px';
 
-const PostMain = styled.main.withConfig({
+const PostMain = styled('main', {
   shouldForwardProp: (prop) => !['selectionColor'].includes(prop),
 })<{ selectionColor: string }>`
   flex: 1 1;
@@ -131,7 +131,7 @@ const PostMain = styled.main.withConfig({
   }
 `;
 
-const GradientTitle = styled.h1.withConfig({
+const GradientTitle = styled('h1', {
   shouldForwardProp: (prop) =>
     !['primaryColor', 'secondaryColor'].includes(prop),
 })<{ primaryColor: string; secondaryColor: string }>`

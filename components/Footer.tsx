@@ -1,7 +1,7 @@
+/** @jsxImportSource @emotion/react */
 'use client';
 
 import { mq } from '@/utils/theme';
-import styled from 'styled-components';
 import { Icon, GitHub, Instagram, Linkedin, Mail } from 'react-feather';
 
 /* ---------------------------------------------------------------------- */
@@ -39,78 +39,78 @@ const links: LinkItem[] = [
 
 export default function Footer() {
   return (
-    <Container>
+    <div
+      css={{
+        display: 'flex',
+        padding: '20px 0',
+        alignItems: 'center',
+        justifyContent: 'center',
+        background: 'var(--colors-background)',
+      }}
+    >
       {links.map((link: LinkItem, index: number) => {
         const Icon = link.icon;
 
         return (
-          <Anchor
+          <a
             key={index}
             href={link.url}
+            css={{
+              border: '0',
+              display: 'flex',
+              fontSize: '15px',
+              marginLeft: '20px',
+              textDecoration: 'none',
+              color: 'var(--colors-text-secondary)',
+              transition: 'color var(--duration) ease-in-out',
+              '&:hover, &:focus': {
+                opacity: '1',
+                color: 'var(--colors-text-primary)',
+              },
+              '&:hover i': {
+                opacity: '1',
+              },
+              '&:first-child': {
+                margin: '0',
+              },
+            }}
             target={link.url.startsWith('https://') ? '_blank' : undefined}
           >
-            <Title>{link.title}</Title>
-            <IconWrapper>
+            <span
+              css={{
+                display: 'none',
+                [mq[1]]: {
+                  display: 'block',
+                },
+              }}
+            >
+              {link.title}
+            </span>
+
+            <i
+              className="icon-wrapper"
+              css={{
+                opacity: '1',
+                marginTop: '1px',
+                marginLeft: '5px',
+                color: 'var(--colors-text-primary)',
+                transition: 'opacity var(--duration) ease-in-out',
+                '& svg': {
+                  height: '20px',
+                },
+                [mq[1]]: {
+                  opacity: '0',
+                  '& svg': {
+                    height: '16px',
+                  },
+                },
+              }}
+            >
               <Icon />
-            </IconWrapper>
-          </Anchor>
+            </i>
+          </a>
         );
       })}
-    </Container>
+    </div>
   );
 }
-
-/* ---------------------------------------------------------------------- */
-
-const Container = styled.div`
-  background: var(--colors-background);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px 0;
-`;
-
-const IconWrapper = styled.i`
-  color: var(--colors-text-primary);
-  opacity: 1;
-  margin-left: 5px;
-  margin-top: 1px;
-  & svg {
-    height: 20px;
-  }
-  ${mq[1]} {
-    opacity: 0;
-    & svg {
-      height: 16px;
-    }
-  }
-`;
-
-const Anchor = styled.a`
-  color: var(--colors-text-secondary);
-  display: flex;
-  font-size: 15px;
-  border: 0;
-  margin-left: 20px;
-  text-decoration: none;
-  transition: color var(--duration) ease-in-out;
-  &:hover,
-  &:focus {
-    color: var(--colors-text-primary);
-    opacity: 1;
-  }
-  &:hover ${IconWrapper} {
-    transition: opacity var(--duration) ease-in-out;
-    opacity: 1;
-  }
-  &:first-child {
-    margin: 0;
-  }
-`;
-
-const Title = styled.span`
-  display: none;
-  ${mq[1]} {
-    display: block;
-  }
-`;
