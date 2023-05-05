@@ -3,6 +3,9 @@
   --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
     'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
     'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+    'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
 
   --foreground-rgb: 255, 255, 255;
   --background-start-rgb: 0, 0, 0;
@@ -39,6 +42,17 @@
   );
 }
 
+/* 
+ #FF4D4D
+ #F9CB28
+
+ #007CF0
+ #00DFD8
+ 
+ #7928CA
+ #FF0080 
+*/
+
 /* ---------------------------------------------------------------------- */
 
 * {
@@ -64,7 +78,7 @@ body {
 
 h1,
 h2 {
-  font-weight: 600;
+  font-weight: 700;
 }
 
 h1 {
@@ -82,12 +96,12 @@ h2 {
 
 p {
   color: var(--colors-text-secondary);
-  font-weight: 400;
+  font-weight: 300;
 }
 
 strong {
   color: var(--colors-text-primary);
-  font-weight: 600;
+  font-weight: 500;
 }
 
 a {

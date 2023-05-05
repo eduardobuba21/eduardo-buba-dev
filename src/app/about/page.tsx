@@ -69,10 +69,10 @@ export default function About() {
     <Container>
       <PostContent>
         <PostContainer>
-          <PostMain selectionColor="#9580ff">
+          <PostMain selectionColor="#FF4D4D">
             <MotionContainer>
               <motion.div variants={mVariants.varFade().in}>
-                <GradientTitle primaryColor="#9580ff" secondaryColor="#ff80bf">
+                <GradientTitle primaryColor="#FF4D4D" secondaryColor="#F9CB28">
                   Sobre.
                 </GradientTitle>
               </motion.div>
@@ -204,6 +204,7 @@ const GradientTitle = styled('h1', {
   shouldForwardProp: (prop) =>
     !['primaryColor', 'secondaryColor'].includes(prop),
 })<{ primaryColor: string; secondaryColor: string }>`
+  display: inline-block;
   background-size: 100%;
   background-clip: text;
   -moz-background-clip: text;
@@ -213,9 +214,9 @@ const GradientTitle = styled('h1', {
   -webkit-text-fill-color: transparent;
 
   background-image: linear-gradient(
-    135deg,
-    ${(p) => p.primaryColor} 0%,
-    ${(p) => p.secondaryColor} 100%
+    90deg,
+    ${(p) => p.primaryColor},
+    ${(p) => p.secondaryColor}
   );
 `;
 

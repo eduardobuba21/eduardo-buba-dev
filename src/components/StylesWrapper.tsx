@@ -1,11 +1,14 @@
 /** @jsxImportSource @emotion/react */
 'use client';
 
-import { Roboto } from 'next/font/google';
+import { Inter } from 'next/font/google';
 
 /* ---------------------------------------------------------------------- */
 
-const roboto = Roboto({ weight: ['300', '400', '500'], subsets: ['latin'] });
+const inter = Inter({
+  weight: ['300', '500', '700'],
+  subsets: ['latin'],
+});
 
 /* ---------------------------------------------------------------------- */
 
@@ -14,13 +17,5 @@ type Props = {
 };
 
 export default function StylesWrapper({ children }: Props) {
-  return (
-    <div
-      css={{
-        fontFamily: roboto.style.fontFamily,
-      }}
-    >
-      {children}
-    </div>
-  );
+  return <div css={{ fontFamily: inter.style.fontFamily }}>{children}</div>;
 }
