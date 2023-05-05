@@ -82,12 +82,12 @@ h2 {
 
 p {
   color: var(--colors-text-secondary);
-  font-weight: 300;
+  font-weight: 400;
 }
 
 strong {
   color: var(--colors-text-primary);
-  font-weight: 400;
+  font-weight: 600;
 }
 
 a {

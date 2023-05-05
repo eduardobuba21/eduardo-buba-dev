@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { mq } from '@/utils/theme';
 import styled from '@emotion/styled';
+import { motion, MotionContainer, mVariants } from '@/components/motion';
 
 /* ---------------------------------------------------------------------- */
 
@@ -69,68 +70,89 @@ export default function About() {
       <PostContent>
         <PostContainer>
           <PostMain selectionColor="#9580ff">
-            <GradientTitle primaryColor="#9580ff" secondaryColor="#ff80bf">
-              Sobre.
-            </GradientTitle>
+            <MotionContainer>
+              <motion.div variants={mVariants.varFade().in}>
+                <GradientTitle primaryColor="#9580ff" secondaryColor="#ff80bf">
+                  Sobre.
+                </GradientTitle>
+              </motion.div>
 
-            <IntroContainer>
-              <Section>
-                <ProfileImg
-                  alt="Eduardo"
-                  src="/profile.jpg"
-                  height="336"
-                  width="336"
-                  placeholder="blur"
-                  blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAIAAAAmkwkpAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAP0lEQVQImQE0AMv/AFBQUJKSkqmpqaOjowCurq7v7+/Jycm5ubkA////jIyMn5+fg4ODADAwMD09PWlpaQAAAApRGnEHblMWAAAAAElFTkSuQmCC"
-                  priority
-                />
-              </Section>
+              <IntroContainer>
+                <Section>
+                  <motion.div variants={mVariants.varFade().inUp}>
+                    <ProfileImg
+                      alt="Eduardo"
+                      src="/profile.jpg"
+                      height="336"
+                      width="336"
+                      placeholder="blur"
+                      blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAIAAAAmkwkpAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAP0lEQVQImQE0AMv/AFBQUJKSkqmpqaOjowCurq7v7+/Jycm5ubkA////jIyMn5+fg4ODADAwMD09PWlpaQAAAApRGnEHblMWAAAAAElFTkSuQmCC"
+                      priority
+                    />
+                  </motion.div>
+                </Section>
 
-              <Section>
-                {/* TODO: margin top on mobile */}
-                <Paragraph>
-                  <strong>Meu nome é Eduardo Buba</strong>, tenho 22 anos, sou
-                  de Piên-PR e formado em Sistemas de Informação na{' '}
-                  <strong>UDESC</strong>.
-                </Paragraph>
+                <Section>
+                  <MotionContainer>
+                    <motion.div variants={mVariants.varFade().inUp}>
+                      <Paragraph isFirst>
+                        <strong>Meu nome é Eduardo Buba</strong>, tenho 22 anos,
+                        sou de Piên-PR e formado em Sistemas de Informação na{' '}
+                        <strong>UDESC</strong>.
+                      </Paragraph>
+                    </motion.div>
 
-                <Paragraph>
-                  Tive oportunidade de ser <strong>aprendiz</strong> de
-                  informática industrial em uma moveleira,{' '}
-                  <strong>estagiário</strong> de TI em uma multinacional
-                  automotiva, e <strong>técnico</strong> de suporte a sistemas e
-                  infraestrutura de rede.
-                </Paragraph>
+                    <motion.div variants={mVariants.varFade().inUp}>
+                      <Paragraph>
+                        Tive oportunidade de ser <strong>aprendiz</strong> de
+                        informática industrial em uma moveleira,{' '}
+                        <strong>estagiário</strong> de TI em uma multinacional
+                        automotiva, e <strong>técnico</strong> de suporte a
+                        sistemas e infraestrutura de rede.
+                      </Paragraph>
+                    </motion.div>
 
-                <Paragraph>
-                  Durante a universade acabei me apegando a programação de{' '}
-                  <strong>aplicações web e mobile</strong>, que foi o caminho
-                  que resolvi seguir desde então.
-                </Paragraph>
-              </Section>
-            </IntroContainer>
+                    <motion.div variants={mVariants.varFade().inUp}>
+                      <Paragraph>
+                        Durante a universade acabei me apegando a programação de{' '}
+                        <strong>aplicações web e mobile</strong>, que foi o
+                        caminho que resolvi seguir desde então.
+                      </Paragraph>
+                    </motion.div>
+                  </MotionContainer>
+                </Section>
+              </IntroContainer>
 
-            <h2>Carreira</h2>
+              <motion.div variants={mVariants.varFade().inUp}>
+                <h2>Experiência</h2>
+              </motion.div>
 
-            {CAREER.map((item, index) => (
-              <div key={index} style={{ marginTop: 20, marginBottom: 40 }}>
-                <h3>{item.jobTitle}</h3>
+              <motion.div variants={mVariants.varFade().inUp}>
+                <MotionContainer>
+                  {CAREER.map((item, index) => (
+                    <motion.div key={index} variants={mVariants.varFade().inUp}>
+                      <div style={{ marginTop: 20, marginBottom: 40 }}>
+                        <h3>{item.jobTitle}</h3>
 
-                <p style={{ margin: 0 }}>
-                  <a href={item.companyUrl} target="_blank">
-                    {item.company}
-                  </a>
-                  <span> • {item.location}</span>
-                </p>
+                        <p style={{ margin: 0 }}>
+                          <a href={item.companyUrl} target="_blank">
+                            {item.company}
+                          </a>
+                          <span> • {item.location}</span>
+                        </p>
 
-                <p style={{ margin: 0 }}>
-                  <span>{item.start}</span>
-                  <span> – </span>
-                  <span>{'end' in item ? item.end : 'Presente'}</span>
-                  {/* <span> • </span> */}
-                </p>
-              </div>
-            ))}
+                        <p style={{ margin: 0 }}>
+                          <span>{item.start}</span>
+                          <span> – </span>
+                          <span>{'end' in item ? item.end : 'Presente'}</span>
+                          {/* <span> • </span> */}
+                        </p>
+                      </div>
+                    </motion.div>
+                  ))}
+                </MotionContainer>
+              </motion.div>
+            </MotionContainer>
           </PostMain>
         </PostContainer>
       </PostContent>
@@ -229,11 +251,15 @@ const Section = styled('div')`
   }
 `;
 
-const Paragraph = styled('p')`
+const Paragraph = styled('p', {
+  shouldForwardProp: (prop) => !['isFirst'].includes(prop),
+})<{ isFirst?: boolean }>`
   & strong {
     font-weight: lighter;
   }
+  margin-top: ${(p) => (p.isFirst ? '10px' : '0')};
   ${mq[1]} {
+    margin-top: 0;
     margin-bottom: 15px;
   }
 `;

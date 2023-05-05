@@ -4,7 +4,12 @@ import { useState } from 'react';
 import { mq } from '@/utils/theme';
 import styled from '@emotion/styled';
 import { Icon, Database, DollarSign } from 'react-feather';
-import { motion, AnimatePresence } from '@/components/motion';
+import {
+  motion,
+  mVariants,
+  AnimatePresence,
+  MotionContainer,
+} from '@/components/motion';
 
 /* ---------------------------------------------------------------------- */
 
@@ -38,33 +43,44 @@ export default function Projects() {
       <PostContent>
         <PostContainer>
           <PostMain selectionColor="#80ffea">
-            <GradientTitle primaryColor="#80ffea" secondaryColor="#8aff80">
-              Projetos.
-            </GradientTitle>
+            <MotionContainer>
+              <motion.div variants={mVariants.varFade().in}>
+                <GradientTitle primaryColor="#80ffea" secondaryColor="#8aff80">
+                  Projetos.
+                </GradientTitle>
+              </motion.div>
 
-            <p>
-              Aqui você pode acompanhar alguns de meus projetos que chegaram a
-              ser publicados, sejam simples conceitos ou ideias de
-              empreendimentos (pode ser que alguns tenham sido desativados).
-            </p>
+              <motion.div variants={mVariants.varFade().inUp}>
+                <p>
+                  Aqui você pode acompanhar alguns de meus projetos que chegaram
+                  a ser publicados, sejam simples conceitos ou ideias de renda
+                  extra (pode ser que alguns tenham sido desativados).
+                </p>
+              </motion.div>
 
-            <h2>Destaque</h2>
-            <FeaturedProjects>
-              {projects.map((item, index) => {
-                const { title, description, url, icon: Icon } = item;
-                return (
-                  <Project key={index} href={url} target="_blank">
-                    <Animation index={index}>
-                      <Body>
-                        <Icon height={20} />
-                        <Title>{title}</Title>
-                        <Description>{description}</Description>
-                      </Body>
-                    </Animation>
-                  </Project>
-                );
-              })}
-            </FeaturedProjects>
+              <motion.div variants={mVariants.varFade().inUp}>
+                <h2>Destaque</h2>
+              </motion.div>
+
+              <motion.div variants={mVariants.varFade().inUp}>
+                <FeaturedProjects>
+                  {projects.map((item, index) => {
+                    const { title, description, url, icon: Icon } = item;
+                    return (
+                      <Project key={index} href={url} target="_blank">
+                        <Animation index={index}>
+                          <Body>
+                            <Icon height={20} />
+                            <Title>{title}</Title>
+                            <Description>{description}</Description>
+                          </Body>
+                        </Animation>
+                      </Project>
+                    );
+                  })}
+                </FeaturedProjects>
+              </motion.div>
+            </MotionContainer>
           </PostMain>
         </PostContainer>
       </PostContent>
