@@ -2,6 +2,7 @@
 
 import { mq } from '@/utils/theme';
 import styled from '@emotion/styled';
+import { PostContainer, PostContent } from '@/components/Post';
 import { motion, MotionContainer, mVariants } from '@/components/motion';
 
 /* ---------------------------------------------------------------------- */
@@ -12,7 +13,7 @@ export default function Home() {
       <PostContent>
         <MotionContainer>
           <motion.div variants={mVariants.varFade().in}>
-            <PostContainer>
+            <PostContainerColored>
               <div>
                 <motion.div variants={mVariants.varFade().inUp}>
                   <NameTypography>Eduardo Buba</NameTypography>
@@ -25,7 +26,7 @@ export default function Home() {
                   </p>
                 </motion.div>
               </div>
-            </PostContainer>
+            </PostContainerColored>
           </motion.div>
         </MotionContainer>
       </PostContent>
@@ -45,22 +46,7 @@ const Container = styled('div')`
   }
 `;
 
-const PostContent = styled('div')`
-  z-index: 1;
-  height: 100%;
-  padding: 20px 0;
-  font-size: 16px;
-  line-height: 32px;
-  position: relative;
-`;
-
-const PostContainer = styled('div')`
-  gap: 40px;
-  display: flex;
-  margin: 0 auto;
-  padding: 0 20px;
-  max-width: 760px;
-  align-items: center;
+const PostContainerColored = styled(PostContainer)`
   &::before {
     width: 480px;
     height: 360px;

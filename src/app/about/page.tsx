@@ -4,6 +4,13 @@ import Image from 'next/image';
 import { mq } from '@/utils/theme';
 import styled from '@emotion/styled';
 import { motion, MotionContainer, mVariants } from '@/components/motion';
+import {
+  PostMain,
+  Container,
+  PostContent,
+  PostContainer,
+  GradientTitle,
+} from '@/components/Post';
 
 /* ---------------------------------------------------------------------- */
 
@@ -162,16 +169,6 @@ export default function About() {
 
 /* ---------------------------------------------------------------------- */
 
-const Container = styled('div')`
-  flex: 1;
-  display: flex;
-  margin: 0 auto;
-  align-items: start;
-  ${mq[1]} {
-    width: 800px;
-  }
-`;
-
 const IntroContainer = styled('div')`
   display: flex;
   flex-direction: column;
@@ -179,63 +176,6 @@ const IntroContainer = styled('div')`
   ${mq[1]} {
     flex-direction: row;
   }
-`;
-
-const navHeightMobile = '110px';
-const navHeightDesktop = '60px';
-
-const PostMain = styled('main', {
-  shouldForwardProp: (prop) => !['selectionColor'].includes(prop),
-})<{ selectionColor: string }>`
-  flex: 1 1;
-  overflow: hidden;
-  padding: ${navHeightMobile} 0;
-  ${mq[1]} {
-    padding: ${navHeightDesktop} 0;
-  }
-  & ::selection {
-    color: #000000;
-    -webkit-text-fill-color: #000000;
-    background: ${(p) => p.selectionColor};
-  }
-`;
-
-const GradientTitle = styled('h1', {
-  shouldForwardProp: (prop) =>
-    !['primaryColor', 'secondaryColor'].includes(prop),
-})<{ primaryColor: string; secondaryColor: string }>`
-  display: inline-block;
-  background-size: 100%;
-  background-clip: text;
-  -moz-background-clip: text;
-  box-decoration-break: clone;
-  -webkit-background-clip: text;
-  -moz-text-fill-color: transparent;
-  -webkit-text-fill-color: transparent;
-
-  background-image: linear-gradient(
-    90deg,
-    ${(p) => p.primaryColor},
-    ${(p) => p.secondaryColor}
-  );
-`;
-
-const PostContent = styled('div')`
-  z-index: 1;
-  height: 100%;
-  padding: 20px 0;
-  font-size: 16px;
-  line-height: 32px;
-  position: relative;
-`;
-
-const PostContainer = styled('div')`
-  gap: 40px;
-  display: flex;
-  margin: 0 auto;
-  padding: 0 20px;
-  max-width: 760px;
-  align-items: center;
 `;
 
 const ProfileImg = styled(Image)`
