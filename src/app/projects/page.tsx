@@ -3,7 +3,32 @@
 import { useState } from 'react';
 import { mq } from '@/utils/theme';
 import styled from '@emotion/styled';
+import { Icon, Database, DollarSign } from 'react-feather';
 import { motion, AnimatePresence } from '@/components/motion';
+
+/* ---------------------------------------------------------------------- */
+
+type ProjectItem = {
+  title: string;
+  description: string;
+  url: string;
+  icon: Icon;
+};
+
+const projects: ProjectItem[] = [
+  {
+    title: 'OndeFoi?',
+    description: 'Finanças pessoais',
+    url: 'https://play.google.com/store/apps/details?id=com.ebuba.finances',
+    icon: DollarSign,
+  },
+  {
+    title: 'buba erp',
+    description: 'Gestão de vendas',
+    url: 'https://www.buba.dev/',
+    icon: Database,
+  },
+];
 
 /* ---------------------------------------------------------------------- */
 
@@ -19,29 +44,26 @@ export default function Projects() {
 
             <p>
               Aqui você pode acompanhar alguns de meus projetos que chegaram a
-              produção, sejam simples conceitos ou ideias de empreendimentos
-              (pode ser que alguns tenham sido deletados).
+              ser publicados, sejam simples conceitos ou ideias de
+              empreendimentos (pode ser que alguns tenham sido desativados).
             </p>
 
             <h2>Destaque</h2>
             <FeaturedProjects>
-              <Project href={''} target="_blank">
-                <Animation index={0}>
-                  <Body>
-                    <Title>OndeFoi?</Title>
-                    <Description>Finanças pessoais</Description>
-                  </Body>
-                </Animation>
-              </Project>
-
-              <Project href={''} target="_blank">
-                <Animation index={1}>
-                  <Body>
-                    <Title>buba erp</Title>
-                    <Description>Gestão de vendas</Description>
-                  </Body>
-                </Animation>
-              </Project>
+              {projects.map((item, index) => {
+                const { title, description, url, icon: Icon } = item;
+                return (
+                  <Project key={index} href={url} target="_blank">
+                    <Animation index={index}>
+                      <Body>
+                        <Icon height={20} />
+                        <Title>{title}</Title>
+                        <Description>{description}</Description>
+                      </Body>
+                    </Animation>
+                  </Project>
+                );
+              })}
             </FeaturedProjects>
           </PostMain>
         </PostContainer>

@@ -217,6 +217,8 @@ const PostContainer = styled('div')`
 
 const ProfileImg = styled(Image)`
   border-radius: var(--border-radius);
+  height: auto;
+  max-width: 100%;
 `;
 
 const Section = styled('div')`
