@@ -15,7 +15,8 @@ export default function BaseLayout({ children }: Props) {
     <div
       css={{
         display: 'flex',
-        minHeight: '100vh',
+        height: '100vh',
+        maxHeight: 'stretch',
         position: 'relative',
         flexDirection: 'column',
       }}

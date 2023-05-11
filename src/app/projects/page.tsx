@@ -1,8 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { mq } from '@/utils/theme';
 import styled from '@emotion/styled';
+import { isMobile, mq } from '@/utils/theme';
 import { Icon, Database, DollarSign } from 'react-feather';
 import {
   PostMain,
@@ -109,8 +109,14 @@ function Animation({
 
   return (
     <AnimContainer
-      onHoverStart={() => setHovered(index)}
-      onHoverEnd={() => setHovered('')}
+      {...(!isMobile && {
+        onHoverStart: () => setHovered(index),
+        onHoverEnd: () => setHovered(''),
+      })}
+      {...(isMobile && {
+        onTouchStart: () => setHovered(index),
+        onTouchEnd: () => setHovered(''),
+      })}
     >
       <AnimatePresence>
         {isHovered && (
@@ -150,10 +156,11 @@ const AnimHovered = styled(motion.span)`
 const FeaturedProjects = styled('div')`
   display: flex;
   flex-wrap: wrap;
-  margin: 10px 0 0 -20px;
+  margin: 10px 0 0 0;
   flex-direction: column;
   ${mq[1]} {
     flex-direction: row;
+    margin: 10px 0 0 -20px;
   }
 `;
 

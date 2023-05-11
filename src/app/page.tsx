@@ -2,7 +2,7 @@
 
 import { mq } from '@/utils/theme';
 import styled from '@emotion/styled';
-import { PostContainer, PostContent } from '@/components/Post';
+import { PostContainer } from '@/components/Post';
 import { motion, MotionContainer, mVariants } from '@/components/motion';
 
 /* ---------------------------------------------------------------------- */
@@ -10,26 +10,24 @@ import { motion, MotionContainer, mVariants } from '@/components/motion';
 export default function Home() {
   return (
     <Container>
-      <PostContent>
-        <MotionContainer>
-          <motion.div variants={mVariants.varFade().in}>
-            <PostContainerColored>
-              <div>
-                <motion.div variants={mVariants.varFade().inUp}>
-                  <NameTypography>Eduardo Buba</NameTypography>
-                </motion.div>
+      <MotionContainer>
+        <motion.div variants={mVariants.varFade().in}>
+          <PostContainerColored>
+            <div>
+              <motion.div variants={mVariants.varFade().inUp}>
+                <NameTypography>Eduardo Buba</NameTypography>
+              </motion.div>
 
-                <motion.div variants={mVariants.varFade().inUp}>
-                  <p>
-                    <strong>Sou desenvolvedor web fullstack</strong>
-                    <br />e mobile nos tempos livres.
-                  </p>
-                </motion.div>
-              </div>
-            </PostContainerColored>
-          </motion.div>
-        </MotionContainer>
-      </PostContent>
+              <motion.div variants={mVariants.varFade().inUp}>
+                <p>
+                  <strong>Sou desenvolvedor web fullstack</strong>
+                  <br />e mobile nos tempos livres.
+                </p>
+              </motion.div>
+            </div>
+          </PostContainerColored>
+        </motion.div>
+      </MotionContainer>
     </Container>
   );
 }

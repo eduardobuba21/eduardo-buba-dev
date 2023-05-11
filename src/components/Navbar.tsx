@@ -3,8 +3,8 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
-import { mq } from '@/utils/theme';
 import styled from '@emotion/styled';
+import { isMobile, mq } from '@/utils/theme';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from '@/components/motion';
 
@@ -42,8 +42,14 @@ export default function Navbar() {
               <li key={path}>
                 <NavbarNavItem href={path}>
                   <NavbarNavItemContent
-                    onHoverStart={() => setHovered(path)}
-                    onHoverEnd={() => setHovered('')}
+                    {...(!isMobile && {
+                      onHoverStart: () => setHovered(path),
+                      onHoverEnd: () => setHovered(''),
+                    })}
+                    {...(isMobile && {
+                      onTouchStart: () => setHovered(path),
+                      onTouchEnd: () => setHovered(''),
+                    })}
                     css={{
                       ...(pathname.includes(path) && {
                         color: 'var(--colors-text-primary)',
@@ -110,7 +116,7 @@ const LogoLink = styled(Link)({
   justifyContent: 'center',
   borderRadius: 'var(--border-radius)',
   transition: 'background var(--duration) ease-in-out',
-  '&:hover': {
+  '&:hover, &:focus, &:active': {
     background: 'var(--colors-hover)',
   },
   //
