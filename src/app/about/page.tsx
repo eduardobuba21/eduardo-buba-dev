@@ -104,26 +104,24 @@ export default function About() {
                     <motion.div variants={mVariants.varFade().inUp}>
                       <Paragraph isFirst>
                         <strong>Meu nome é Eduardo Buba</strong>, tenho 22 anos,
-                        sou de Piên-PR e formado em Sistemas de Informação na{' '}
-                        <strong>UDESC</strong>.
+                        sou de Piên-PR e sou formado em Sistemas de Informação
+                        na <strong>UDESC</strong>.
                       </Paragraph>
                     </motion.div>
 
                     <motion.div variants={mVariants.varFade().inUp}>
                       <Paragraph>
-                        Tive oportunidade de ser <strong>aprendiz</strong> de
-                        informática industrial em uma moveleira,{' '}
-                        <strong>estagiário</strong> de TI em uma multinacional
-                        automotiva, e <strong>técnico</strong> de suporte a
-                        sistemas e infraestrutura de rede.
+                        Já tive a oportunidade de ser <strong>aprendiz</strong>{' '}
+                        de informática industrial, <strong>estagiário</strong>{' '}
+                        de TI, e <strong>técnico</strong> de suporte a sistemas
+                        e infraestrutura de rede.
                       </Paragraph>
                     </motion.div>
 
                     <motion.div variants={mVariants.varFade().inUp}>
                       <Paragraph>
-                        Durante a universade acabei me apegando a programação de{' '}
-                        <strong>aplicações web e mobile</strong>, que foi o
-                        caminho que resolvi seguir desde então.
+                        Durante a universade acabei me apegando a programação{' '}
+                        <strong>web e mobile</strong>, e aqui estou ;)
                       </Paragraph>
                     </motion.div>
                   </MotionContainer>
@@ -199,8 +197,8 @@ const Paragraph = styled('p', {
     font-weight: lighter;
   }
   margin-top: ${(p) => (p.isFirst ? '10px' : '0')};
+  margin-bottom: 15px;
   ${mq[1]} {
     margin-top: 0;
-    margin-bottom: 15px;
   }
 `;
