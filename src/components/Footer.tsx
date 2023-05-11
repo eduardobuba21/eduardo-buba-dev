@@ -48,6 +48,7 @@ export default function Footer() {
           <FooterItem
             key={index}
             href={link.url}
+            aria-label={link.title}
             target={link.url.startsWith('https://') ? '_blank' : undefined}
           >
             <FooterItemTitle>{link.title}</FooterItemTitle>
