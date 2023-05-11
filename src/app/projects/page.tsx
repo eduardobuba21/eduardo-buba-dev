@@ -1,8 +1,9 @@
 'use client';
 
 import { useState } from 'react';
+import { mq } from '@/utils/theme';
 import styled from '@emotion/styled';
-import { isMobile, mq } from '@/utils/theme';
+import useResponsive from '@/hooks/useResponsive';
 import { Icon, Database, DollarSign } from 'react-feather';
 import {
   PostMain,
@@ -104,6 +105,8 @@ function Animation({
   index: number;
   children: React.ReactNode;
 }) {
+  const { isMobile } = useResponsive();
+
   const [hovered, setHovered] = useState<number | string>('');
   const isHovered = hovered === index;
 

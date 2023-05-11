@@ -3,9 +3,10 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
+import { mq } from '@/utils/theme';
 import styled from '@emotion/styled';
-import { isMobile, mq } from '@/utils/theme';
 import { usePathname } from 'next/navigation';
+import useResponsive from '@/hooks/useResponsive';
 import { motion, AnimatePresence } from '@/components/motion';
 
 /* ---------------------------------------------------------------------- */
@@ -25,6 +26,9 @@ const paths: PathItem[] = [
 export default function Navbar() {
   const pathname = usePathname();
   const [hovered, setHovered] = useState('');
+
+  const { isMobile, width, breakpoints } = useResponsive();
+  const alignRight = width < breakpoints[0];
 
   return (
     <NavbarContainer>
@@ -77,7 +81,7 @@ export default function Navbar() {
         </NavbarNavList>
       </NavbarNav>
 
-      <NavbarCornerItem />
+      {!alignRight && <NavbarCornerItem />}
     </NavbarContainer>
   );
 }
@@ -104,6 +108,7 @@ const NavbarContainer = styled('header')({
 const NavbarCornerItem = styled('div')({
   flex: '1 1 0px',
   display: 'flex',
+  paddingTop: '8px', // X
 });
 
 const LogoLink = styled(Link)({
@@ -129,10 +134,18 @@ const LogoLink = styled(Link)({
 //
 
 const NavbarNav = styled('nav')({
-  textAlign: 'center',
+  // textAlign: 'center',
+  textAlign: 'right', // X
+  marginRight: '12px', // X
   flex: '1',
-  order: '2',
-  flexBasis: '100%',
+  // order: '2',  // X
+  // flexBasis: '100%',  // X
+  order: 0,
+  flexBasis: 'initial',
+  [mq[0]]: {
+    margin: 0, // X
+    textAlign: 'center', // X
+  },
   [mq[1]]: {
     order: 0,
     flexBasis: 'initial',
