@@ -36,7 +36,7 @@ export default function Navbar() {
         <LogoLink href="/">B</LogoLink>
       </NavbarCornerItem>
 
-      <NavbarNav>
+      <NavbarNav layout>
         <NavbarNavList>
           {paths.map((item) => {
             const { path, label } = item;
@@ -108,7 +108,7 @@ const NavbarContainer = styled('header')({
 const NavbarCornerItem = styled('div')({
   flex: '1 1 0px',
   display: 'flex',
-  paddingTop: '8px', // X
+  paddingTop: '6px', // X
 });
 
 const LogoLink = styled(Link)({
@@ -133,7 +133,7 @@ const LogoLink = styled(Link)({
 
 //
 
-const NavbarNav = styled('nav')({
+const NavbarNav = styled(motion.nav)({
   // textAlign: 'center',
   textAlign: 'right', // X
   marginRight: '12px', // X

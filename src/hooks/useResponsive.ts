@@ -1,3 +1,5 @@
+'use client';
+
 import { useEffect, useState } from 'react';
 // utils
 import { breakpoints } from '@/utils/theme';
@@ -5,7 +7,7 @@ import { breakpoints } from '@/utils/theme';
 // ----------------------------------------------------------------------
 
 export default function useResponsive() {
-  const [width, setWidth] = useState(window.innerWidth);
+  const [width, setWidth] = useState(2000);
 
   useEffect(() => {
     const updateWindowDimensions = () => setWidth(window.innerWidth);
