@@ -39,7 +39,7 @@ const CAREER: {
   {
     jobTitle: 'Suporte técnico',
     company: 'Szmigel',
-    companyUrl: 'https://szmigel.com.br',
+    companyUrl: 'http://szmigel.com.br',
     start: 'Fev 2021',
     end: 'Abr 2022',
     location: 'Piên, PR',
@@ -57,7 +57,7 @@ const CAREER: {
     companyUrl: 'https://cooperstandard.com',
     start: 'Fev 2019',
     end: 'Nov 2019',
-    location: 'Rio Negrinho, SC',
+    location: 'São Bento do Sul, SC',
   },
   {
     jobTitle: 'Aprendiz',
@@ -140,9 +140,14 @@ export default function About() {
                         <h3>{item.jobTitle}</h3>
 
                         <p style={{ margin: 0 }}>
-                          <a href={item.companyUrl} target="_blank">
-                            {item.company}
-                          </a>
+                          {item.companyUrl ? (
+                            <a href={item.companyUrl} target="_blank">
+                              {item.company}
+                            </a>
+                          ) : (
+                            <span>{item.company}</span>
+                          )}
+
                           <span> • {item.location}</span>
                         </p>
 
