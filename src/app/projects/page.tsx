@@ -46,6 +46,10 @@ const projects: ProjectItem[] = [
 /* ---------------------------------------------------------------------- */
 
 export default function Projects() {
+  const [hovered, setHovered] = useState<number | string>('');
+
+  const { isMobile } = useResponsive();
+
   return (
     <Container>
       <PostContent>
@@ -70,19 +74,41 @@ export default function Projects() {
                 <h2>Destaque</h2>
               </motion.div>
 
-              <motion.div variants={mVariants.varFade().inUp}>
+              <motion.div variants={mVariants.varFade().inUp} layout>
                 <FeaturedProjects>
                   {projects.map((item, index) => {
                     const { title, description, url, icon: Icon } = item;
+                    const isHovered = hovered === index;
+
                     return (
-                      <Project key={index} href={url} target="_blank">
-                        <Animation index={index}>
+                      <Project key={title} href={url} target="_blank">
+                        <AnimContainer
+                          {...(!isMobile && {
+                            onHoverStart: () => setHovered(index),
+                            onHoverEnd: () => setHovered(''),
+                          })}
+                          {...(isMobile && {
+                            onTouchStart: () => setHovered(index),
+                            onTouchEnd: () => setHovered(''),
+                          })}
+                        >
+                          <AnimatePresence>
+                            {isHovered && (
+                              <AnimHovered
+                                layoutId="featuredProjects"
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}
+                              />
+                            )}
+                          </AnimatePresence>
+
                           <Body>
                             <Icon height={20} />
                             <Title>{title}</Title>
                             <Description>{description}</Description>
                           </Body>
-                        </Animation>
+                        </AnimContainer>
                       </Project>
                     );
                   })}
@@ -97,45 +123,6 @@ export default function Projects() {
 }
 
 /* ---------------------------------------------------------------------- */
-
-function Animation({
-  index,
-  children,
-}: {
-  index: number;
-  children: React.ReactNode;
-}) {
-  const { isMobile } = useResponsive();
-
-  const [hovered, setHovered] = useState<number | string>('');
-  const isHovered = hovered === index;
-
-  return (
-    <AnimContainer
-      {...(!isMobile && {
-        onHoverStart: () => setHovered(index),
-        onHoverEnd: () => setHovered(''),
-      })}
-      {...(isMobile && {
-        onTouchStart: () => setHovered(index),
-        onTouchEnd: () => setHovered(''),
-      })}
-    >
-      <AnimatePresence>
-        {isHovered && (
-          <AnimHovered
-            layoutId="featuredProjects"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          />
-        )}
-      </AnimatePresence>
-
-      {children}
-    </AnimContainer>
-  );
-}
 
 const AnimContainer = styled(motion.span)`
   width: 100%;

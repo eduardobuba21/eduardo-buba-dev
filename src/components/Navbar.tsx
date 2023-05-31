@@ -121,7 +121,7 @@ const LogoLink = styled(Link)({
   justifyContent: 'center',
   borderRadius: 'var(--border-radius)',
   transition: 'background var(--duration) ease-in-out',
-  '&:hover, &:focus, &:active': {
+  '&:hover': {
     background: 'var(--colors-hover)',
   },
   //
@@ -171,7 +171,7 @@ const NavbarNavList = styled('ul')({
 const NavbarNavItem = styled(Link)({
   border: '0',
   position: 'relative',
-  '&:hover, &:focus': {
+  '&:hover': {
     opacity: '1',
   },
 });
