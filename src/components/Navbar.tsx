@@ -151,7 +151,7 @@ const NavbarNav = styled(motion.nav)({
     flexBasis: 'initial',
   },
   [mq[2]]: {
-    overflowX: 'scroll',
+    overflowX: 'auto',
     overflowY: 'hidden',
   },
 });
