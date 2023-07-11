@@ -20,7 +20,7 @@ export default function Home() {
 
               <motion.div variants={mVariants.varFade().inUp}>
                 <p>
-                  <strong>Sou desenvolvedor web fullstack</strong>
+                  <strong>Sou desenvolvedor web full-time</strong>
                   <br />e mobile nos tempos livres.
                 </p>
               </motion.div>

@@ -24,16 +24,16 @@ const CAREER: {
 }[] = [
   {
     jobTitle: 'Desenvolvedor web',
-    company: 'tex4',
-    companyUrl: 'https://tex4.com',
-    start: 'Dez 2022',
-    location: 'Piên, PR',
+    company: 'BPlus',
+    companyUrl: 'https://bplus.com.br',
+    start: 'Jul 2023',
+    location: 'São Bento do Sul, SC',
   },
   {
-    jobTitle: 'Desenvolvedor',
+    jobTitle: 'Desenvolvedor web',
     company: 'Autônomo',
     start: 'Mai 2022',
-    end: 'Nov 2022',
+    end: 'Jun 2023',
     location: 'Piên, PR',
   },
   {
@@ -42,13 +42,6 @@ const CAREER: {
     companyUrl: 'http://szmigel.com.br',
     start: 'Fev 2021',
     end: 'Abr 2022',
-    location: 'Piên, PR',
-  },
-  {
-    jobTitle: 'Designer',
-    company: 'Autônomo',
-    start: 'Dez 2019',
-    end: 'Jan 2021',
     location: 'Piên, PR',
   },
   {
